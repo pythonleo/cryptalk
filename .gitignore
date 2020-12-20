@@ -1,6 +1,7 @@
 __pycache__/
 *~
-
+*.exe
+*.spec
 /build/
 /dist/
 .idea/
