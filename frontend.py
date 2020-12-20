@@ -4,7 +4,7 @@ from pyramid.response import Response
 
 
 def main(_):
-    with open("current.txt") as fr:
+    with open("current.txt", encoding="utf-8") as fr:
         return Response(fr.read())
 
 
