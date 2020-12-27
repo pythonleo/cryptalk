@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((640, 720))
 pygame.display.set_caption("Received Messages")
 font = pygame.font.Font("JetBrainsMono-Regular.ttf", 18)
 
-txt = 'BACKSPACE to clear screen\n'
+txt = 'BACKSPACE to clear screen\n\n'
 
 last = ''
 
@@ -22,18 +22,16 @@ while True:
         if event.type == pygame.QUIT:
             exit()
         if event.type == pygame.KEYDOWN and event.key == pygame.K_BACKSPACE:
-            screen.fill((0, 0, 0))
             erased = True
 
     new = r.get("http://" + argv[1]).text
-    if new == last:
-        continue
-    try: txt += decode(new) + '\n'
-    except IndexError: pass
-    last = new
+    if new != last:
+        try: txt += decode(new) + '\n'
+        except IndexError: pass
+        last = new
 
     if erased:
-        txt = 'BACKSPACE to clear screen\n'
+        txt = 'BACKSPACE to clear screen\n\n'
 
     x, y = 0, 0
     for ch in txt:

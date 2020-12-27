@@ -11,6 +11,10 @@ def get_bin_form(n, std_len=None):
 def encode(src):
     bin_str = ''
     for ch in src:
+        if not (32 <= ord(ch) <= 90 or 97 <= ord(ch) <= 122):
+            print("Unsupported character: %s" % ch)
+            return ''
+        ch = ch.lower()
         is_letter = 'a' <= ch <= 'z'
         n = (ord(ch) - ord('a')) if is_letter else (ord(ch) - ord(' '))
         bin_str += '0' if is_letter else '1'

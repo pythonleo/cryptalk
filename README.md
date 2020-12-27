@@ -1,8 +1,10 @@
 # cryptalk
-> Simple secret talking tool for computers who know each other's IP address<br>
+> Simple secret talking tool for computers who know each other's IP address
 
-***NOT STABLE YET***
+**NOT STABLE YET**
+## Usage
+`./cryptalk <ip of other computer>`
 ## Requirements
-- Pyramid (for web server)
+- Bottle (for web server)
 - requests (for reading others' message)
-- Pygame
+- Pygame (for receiving messages)
